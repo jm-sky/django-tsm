@@ -7,9 +7,8 @@ def index(request):
   members = Member.objects.all()
   images = Image.objects.all()
 
-  return render(request, 'layouts/main.html', {
+  return render(request, 'pages/index.html', {
     'title': 'Welcome',
-    'page': 'index.html',
     'description': 'To jest strona DEMO',
     'members': members,
   })
@@ -19,9 +18,8 @@ def albums(request):
   images = Image.objects.all()
   images = images or [{ 'title': 'Test' }, { 'title': 'Mountains' }]
 
-  return render(request, 'layouts/main.html', {
+  return render(request, 'pages/albums.html', {
     'title': 'Album',
-    'page': 'pages/albums.html',
     'description': 'To jest przykładowy album ze zdjęciami. Dane idą z widoku. Nie da się tu nic zrobić na razie.',
     'images': images,
   })
